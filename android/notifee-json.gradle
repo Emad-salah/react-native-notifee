@@ -249,7 +249,7 @@ if (configJsonFile != null) {
           project.logger.warn("Notifee WARNING: Could not find your 'app' gradle project automatically, you may need to manually apply the notifee-json.gradle script.")
         }
       }
-      if (appProject) {
+      if (appProject && appProject.hasProperty('android')) {
         appProject.android.applicationVariants.all { variant ->
           registerJsonTaskForProjectVariant(configJsonFile, appProject, variant)
         }
