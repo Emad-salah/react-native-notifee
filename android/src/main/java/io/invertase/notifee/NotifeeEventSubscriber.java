@@ -7,6 +7,7 @@ package io.invertase.notifee;
 import android.os.Bundle;
 
 import androidx.annotation.Keep;
+import android.content.Intent;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.WritableMap;
@@ -48,6 +49,8 @@ public class NotifeeEventSubscriber implements EventListener {
       Bundle pressAction = extras.getBundle(KEY_DETAIL_PRESS_ACTION);
       if (pressAction != null) {
         eventDetailMap.putMap(KEY_DETAIL_PRESS_ACTION, Arguments.fromBundle(pressAction));
+        Intent it = new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
+        NotifeeReactUtils.getReactContext().sendBroadcast(it);
       }
 
       String input = extras.getString(KEY_DETAIL_INPUT);
