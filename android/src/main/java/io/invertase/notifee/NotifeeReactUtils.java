@@ -84,7 +84,7 @@ class NotifeeReactUtils {
     }
   }
 
-  private static @Nullable ReactContext getReactContext() {
+  static @Nullable ReactContext getReactContext() {
     ReactNativeHost reactNativeHost =
         ((ReactApplication) EventSubscriber.getContext()).getReactNativeHost();
     ReactInstanceManager reactInstanceManager = reactNativeHost.getReactInstanceManager();
